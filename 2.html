@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soal No. 2</title>
+    <style>
+      body {
+        background-color: grey;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .container {
+        background-color: white;
+        width: 600px;
+        margin: 30px auto;
+        text-align: center;
+        padding: 30px;
+        border-radius: 10px;
+      }
+      p {
+        text-align: justify;
+      }
+
+      button {
+        width: 180px;
+      }
+      textarea {
+        width: 580px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Soal No. 2</h1>
+      <h2 style="text-align: left">Created By: Azizul Hakim</h2>
+      <p>
+        Buatlah sebuah function sederhana untuk menghitung jumlah huruf dari
+        parameter yang diinputkan.
+      </p>
+      <label><strong>Huruf Yang Dihitung</strong></label> <br />
+      <input
+        type="text"
+        name="hurufDihitung"
+        id="hurufDihitung"
+        placeholder="a/ b/ c/ .../z"
+      /><br /><br />
+      <label><strong>Kalimat Yang Akan Discan</strong></label> <br />
+      <input
+        type="text"
+        name="kalimatScan"
+        id="kalimatScan"
+        placeholder="Masukan kalimat yang ingin dicheck"
+      /><br /><br />
+      <button onClick="hitungHurufDariKalimat()">Jumlah Huruf</button>
+
+      <br /><br />
+      <textarea
+        style="font-size: 25px"
+        name="output"
+        id="output"
+        cols="30"
+        rows="10"
+      ></textarea
+      ><br />
+    </div>
+  </body>
+  <script>
+    function hitungHurufDariKalimat() {
+      var hurufDihitung = document.getElementById("hurufDihitung").value;
+      var kalimatScan = document.getElementById("kalimatScan").value;
+      var output = document.getElementById("output");
+      if (typeof hurufDihitung == "string") {
+        var kalimat2 = kalimatScan.split("").filter(function (x) {
+          return x == hurufDihitung;
+        });
+        output.value =
+          "Hasil hitung huruf" +
+          '"' +
+          hurufDihitung +
+          '"' +
+          "muncul sebanyak " +
+          kalimat2.length +
+          "kali";
+      } else {
+        output.value = "Huruf yang anda masukan salah!";
+        return;
+      }
+    }
+  </script>
+</html>

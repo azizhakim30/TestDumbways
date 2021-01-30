@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soal No. 3</title>
+    <style>
+      body {
+        background-color: grey;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .container {
+        background-color: white;
+        width: 600px;
+        margin: 30px auto;
+        text-align: center;
+        padding: 30px;
+        border-radius: 10px;
+      }
+      p {
+        text-align: justify;
+      }
+
+      button {
+        width: 180px;
+      }
+      textarea {
+        width: 580px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Soal No. 3</h1>
+      <h2 style="text-align: left">Created By: Azizul Hakim</h2>
+      <p>
+        Buatlah sebuah program sederhana untuk mencetak pola
+        Diketahui: Params = Jumlah Pola
+      </p>
+      <label><strong>Masukkan Angka</strong></label> <br />
+      <input
+        type="text"
+        name="angka"
+        id="angka"
+        placeholder="Silakan Masukan Angka!"
+      /><br /><br />
+      
+      <button onClick="cetakPola()">Jumlah Pola</button>
+
+      <br /><br />
+      <textarea
+        style="font-size: 25px; overflow: auto"
+        name="output"
+        id="output"
+        cols="30"
+        rows="10"
+      ></textarea
+      ><br />
+    </div>
+  </body>
+  <script>
+    function cetakPola() {
+      var output = document.getElementById("output");
+      output.value = "";
+      var input = document.getElementById("angka").value;
+      output.value += "  *  ".repeat(input);
+      output.value += "\n";
+      output.value += " * * ".repeat(input);
+      output.value += "\n";
+      output.value += "*   *".repeat(input);
+      output.value += "\n";
+      output.value += " * * ".repeat(input);
+      output.value += "\n";
+      output.value += "  *  ".repeat(input);
+      output.value += "\n";
+    }
+  </script>
+</html>
