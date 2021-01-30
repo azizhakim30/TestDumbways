@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soal No. 1</title>
+    <style>
+      body {
+        background-color: grey;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .container {
+        background-color: white;
+        width: 600px;
+        margin: 30px auto;
+        text-align: center;
+        padding: 30px;
+        border-radius: 10px;
+      }
+      p {
+        text-align: justify;
+      }
+
+      button {
+        width: 180px;
+      }
+      textarea {
+        width: 580px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Soal No. 1</h1>
+      <h2 style="text-align: left">Created By: Azizul Hakim</h2>
+      <p>
+        Buatlah sebuah program sederhana untuk menghitung kredit rumah. Dengan
+        DP sebesar 20 % dari harga rumah. Tipe Rumah:1. Rose 120.000.000 2. Gold
+        300.000.000 3. Platinum 360.000.000
+      </p>
+      <label><strong>Tipe Rumah</strong></label> <br />
+      <input
+        type="text"
+        name="tipeRumah"
+        id="tipeRumah"
+        placeholder="Rose/ Gold/ Platinum"
+      /><br /><br />
+      <label><strong>Lama Kredit</strong></label> <br />
+      <input
+        type="text"
+        name="lamaKredit"
+        id="lamaKredit"
+        placeholder="Lama Kredit"
+      /><br /><br />
+      <button onClick="hitungAngsuran()">Jumlah Angsuran</button>
+
+      <br /><br />
+      <textarea
+        style="font-size: 25px"
+        name="output"
+        id="output"
+        cols="30"
+        rows="10"
+      ></textarea
+      ><br />
+    </div>
+  </body>
+  <script>
+    function hitungAngsuran() {
+      var tipeRumah = document.getElementById("tipeRumah").value;
+      var lamaKredit = document.getElementById("lamaKredit").value;
+      var output = document.getElementById("output");
+      var harga = 0;
+      if (tipeRumah == "Rose") {
+        harga = 120000000;
+      } else if (tipeRumah == "Gold") {
+        harga = 300000000;
+      } else if (tipeRumah == "Platinum") {
+        harga = 360000000;
+      } else {
+        output.value = "Tipe Rumah Yang Dimasukan Tidak Ada!";
+        return;
+      }
+      var uangMuka = harga * 0.2;
+      var sisa = harga - uangMuka;
+      var angsuran = sisa / lamaKredit;
+
+      var awal = sisa;
+      var hasil = [];
+
+      for (let i = 1; i <= lamaKredit; i++) {
+        hasil.push(`${i} => ${angsuran} => Sisa ${awal - angsuran}`);
+        awal -= angsuran;
+      }
+
+      output.value =
+        "Tipe Rumah : " +
+        tipeRumah +
+        "\nHarga Rumah : " +
+        harga +
+        "\nUang Muka : " +
+        uangMuka +
+        "\nSisa : " +
+        sisa +
+        "\nLama Kredit : " +
+        lamaKredit +
+        "\nAngsuran : " +
+        angsuran +
+        "\n" +
+        hasil.join(",").replaceAll(",", "\n");
+    }
+  </script>
+</html>
